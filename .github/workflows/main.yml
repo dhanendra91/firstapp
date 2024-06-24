@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       my_input:
-        description: 'An example input parameter'
+        description: 'sample example'
         required: true
-        default: 'default value'
+        default: 'abc'
         type: string
 jobs:
   job1:
