@@ -1,5 +1,17 @@
 name: workflow1
-on: push
+on: 
+  push:
+    branches: 
+      - main
+  schedule:
+    - cron:  '5 * * * *'
+  workflow_dispatch:
+    inputs:
+      my_input:
+        description: 'An example input parameter'
+        required: true
+        default: 'default value'
+        type: string
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -9,4 +21,6 @@ jobs:
       - name: step1
         run: echo "Hello"
       - name: step2
-        run: echo $MY_VAR
+        run: |
+          echo $MY_VAR
+          echo "My input is: ${{ github.event.inputs.my_input }}"
