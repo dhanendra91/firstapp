@@ -3,6 +3,10 @@ on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
+    env:
+      MY_VAR: my_value
     steps:
       - name: step1
         run: echo "Hello"
+      - name: step2
+        run: echo $MY_VAR
